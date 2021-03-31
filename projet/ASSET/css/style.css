@@ -1,0 +1,74 @@
+#accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.row2 {
+    align-items: center;
+    min-height: 90vh;
+}
+
+footer {
+    min-height: 6vh;
+}
+
+a {
+    color: white !important;
+}
+
+a:link {
+    text-decoration: none !important;
+}
+
+body {
+    position: relative;
+}
+
+#update {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+
+#insert {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+
+.btnClose {
+    margin-left: 80%;
+    font-size: 300%;
+    color: white;
+    cursor: pointer;
+
+}
+
+.CardCss{
+    position: relative;
+}
+.deleteBtnCard{
+    position: absolute;
+    top: 90%;
+    left: 7rem;
+}

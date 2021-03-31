@@ -47,14 +47,54 @@ class root
     public function admin()
     {
         if (isset($_SESSION["pseudo"])) {
+
+
             $controller = new contentController;
-            $result = $controller->viewContent();
-
-
             $view = new adminView();
-            $view->admin($result);
+            $view->adminHeader();
+
+            if (isset($_GET["delete"])) {
+                $delete = $controller->deleteContent($_GET["delete"]);
+            }
+            if (isset($_GET["update"])) {
+                $update = $controller->updateOneContent();
+                $oneContent = $controller->viewOneContent();
+                $view->clientUpdate($oneContent);
+            }
+
+
+            if (isset($_GET["insert"])) {
+                $insertOneContent = $controller->insertOneContent();
+                $view->clientInsert();
+            }
+
+
+
+
+            $result = $controller->viewAllContent();
+            $view->adminAllView($result);
+            $view->adminFooter();
         } else {
             header("Location: ?page=connect");
         }
+    }
+
+    public function recoveryPass()
+    {
+        $controller = new formController;
+        $result = $controller->recoveryPass();
+
+
+        $view = new formView();
+        $view->recoveryPass($result);
+    }
+    public function recoveryPass2()
+    {
+        $controller = new formController;
+        $result = $controller->recoveryPass2();
+
+
+        $view = new formView();
+        $view->recoveryPass2($result);
     }
 }

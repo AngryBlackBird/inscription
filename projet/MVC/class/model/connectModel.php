@@ -64,4 +64,43 @@ class connectModel
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function recoveryPass($mail)
+    {
+        $query = $this->bdd->prepare('SELECT COUNT(*) AS nb FROM users WHERE mail = :A');
+        $query->bindValue(":A", $mail);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $row;
+    }
+    public function insertTokenMailing($token, $mail)
+    {
+        // On insère la date et le token dans la DB
+        $query = $this->bdd->prepare('UPDATE users SET dateRecuperates = NOW(),tokenRecuperates = :A WHERE mail = :B');
+        $query->bindValue(":A", $token);
+        $query->bindValue(":B", $mail);
+        $query->execute();
+        return $query;
+    }
+
+    public function selectTokenByToken($token)
+    {
+        // On récupère les informations par rapport au token dans la base de données
+        $query = $this->bdd->prepare('SELECT tokenRecuperates, dateRecuperates FROM users WHERE tokenRecuperates = ?');
+        $query->bindValue(1, $token);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
+
+    public function updatePass($password, $token)
+    {
+        $query = $this->bdd->prepare('UPDATE users SET pass = :A, tokenRecuperates = "" WHERE tokenRecuperates = :B');
+        $query->bindParam(":A", $password);
+        $query->bindParam(":B", $token);
+        $query->execute();
+    }
 }

@@ -15,6 +15,10 @@ if (isset($_GET["page"])) {
         $root->subscribe();
     } elseif ($_GET["page"] == "admin") {
         $root->admin();
+    } elseif ($_GET["page"] == "recoveryPass") {
+        $root->recoveryPass();
+    } elseif ($_GET["page"] == "recoveryPass2") {
+        $root->recoveryPass2();
     }
 } elseif (empty($_GET)) {
     $root->accueil();

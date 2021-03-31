@@ -1,9 +1,27 @@
-<main>
+<section>
 
-    <form> <select class="form-control">
-            <option>Default select</option>
-        </select>
-    </form>
+    <div class="container-fluid">
+        <div class="row mt-2 mb-2">
+            <form action="?page=admin&insert" method="post" class="col-3">
+                <button type="submit" class="btn btn-primary  ml-1 mr-1">Ajouter un client</button>
+            </form>
+            <div class="col-6"></div>
+
+            <form class="col-3">
+                <select class="form-control">
+                    <option value="" disabled selected>Filtre</option>
+                    <option value="Noma-z">Nom a-z </option>
+                    <option value="Nomz-a">Nom z-a </option>
+                    <option value="Prénoma-z">Prénom a-z </option>
+                    <option value="Prénomz-a">Prénom z-a </option>
+                    <option value="Emaila-z">Email a-z </option>
+                    <option value="Emailz-a">Email z-a </option>
+                    <option value="Datez-a">Date z-a </option>
+                    <option value="Datez-a ">Date z-a </option>
+                </select>
+            </form>
+        </div>
+    </div>
 
     <table class="table table-dark">
         <thead>
@@ -19,21 +37,34 @@
         <tbody>
             <?php
 
+
             $count = count($result);
-            
+
             for ($i = 0; $i < $count; $i++) : ?>
 
                 <tr>
-                    <th scope="row"><?php echo $i+1 ?></th>
+                    <th scope="row"><?php echo $i + 1 ?></th>
                     <td><?php echo $result[$i]["lastname"] ?></td>
                     <td><?php echo $result[$i]["name"] ?></td>
                     <td><?php echo $result[$i]["mail"] ?></td>
                     <td><?php echo $result[$i]["time"] ?></td>
-                    <td><input class="btn btn-primary" type="button" value="Input"></td>
+
+                    <td style="display:flex;">
+                        <form action="?page=admin&delete=<?php echo $result[$i]["id"] ?>" method="post">
+
+                            <button type="submit" class="btn btn-danger ml-1 mr-1">Supprimer</button>
+                        </form>
+                        <form action="?page=admin&update=<?php echo $result[$i]["id"] ?>" method="post">
+
+                            <button type="submit" class="btn btn-primary  ml-1 mr-1">Modifier</button>
+                        </form>
+                    </td>
+
                 </tr>
 
-            <?php endfor ?>
+            <?php endfor
+            ?>
 
         </tbody>
     </table>
-</main>
+</section>
