@@ -14,12 +14,24 @@
 
     include '../secure/log.php';
 
+
+    try {
+        $bdd = new PDO('mysql:host=' . $servername . ';charset=utf8', $username, $password);
+
+
+
+        $bdd->query("CREATE DATABASE $dbname");
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+
+
+
     try {
         $bdd = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
 
 
 
-        // $bdd->query("CREATE DATABASE inscription");
 
 
         $bdd->query("CREATE TABLE users (
@@ -35,12 +47,12 @@
         )");
 
         $bdd->query("CREATE TABLE IF NOT EXISTS client (
+        id INT NOT NULL AUTO_INCREMENT, 
         name VARCHAR(30),
         lastname VARCHAR(30),
         mail VARCHAR(250),
         time DATE,
-        PRIMARY KEY (mail)
-        )");
+        PRIMARY KEY (id))");
     } catch (Exception $e) {
         die('Erreur : ' . $e->getMessage());
     }

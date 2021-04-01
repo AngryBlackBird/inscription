@@ -67,7 +67,9 @@ class root
                 $insertOneContent = $controller->insertOneContent();
                 $view->clientInsert();
             }
-
+            if (isset($_GET["insertMultiple"])) {
+                $insertMultipleContent = $controller->insertCSV();
+            }
 
 
 

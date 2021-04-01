@@ -54,7 +54,7 @@ class contentController
     {
         if (isset($_POST["name"]) && isset($_POST["lastname"]) && isset($_POST["mail"]) && isset($_POST["date"])) {
 
-            
+
             $name = $_POST["name"];
             $lastname = $_POST["lastname"];
             $mail = $_POST["mail"];
@@ -63,5 +63,22 @@ class contentController
             $data  = $update->insertOneContent($name, $lastname, $mail, $date);
             return $data;
         }
+    }
+
+    public function insertCSV()
+    {
+
+        $brut = fopen($_FILES["userfile"]["tmp_name"], 'r');
+
+        $insert = new contentModel;
+
+        while ($data = fgetcsv($brut, 255, ";")) {
+            
+            $insert->insertOneContent($data[0], $data[1], $data[2], $data[3]);
+        }
+
+
+        $msg = "<p> Fichier bien ajouter<p>";
+        return $msg;
     }
 }

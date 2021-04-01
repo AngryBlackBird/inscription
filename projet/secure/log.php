@@ -3,4 +3,4 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "inscription";
+  $dbname = "test1";
