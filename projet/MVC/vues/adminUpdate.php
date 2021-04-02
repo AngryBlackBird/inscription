@@ -1,3 +1,9 @@
+<?php       
+if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/adminUpdate.php') {
+    header('Location: /inscription/projet/?page=connect');
+}
+?>
+
 <section id="update">
     <span class="btnClose" onclick="masquerVideo()">&times;</span>
     <div class="container ">

@@ -1,3 +1,10 @@
+<?php       
+if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/admin.php') {
+    header('Location: /inscription/projet/?page=admin');
+}
+?>
+
+
 <section>
 
     <div class="container-fluid">
@@ -5,14 +12,16 @@
             <form action="?page=admin&insert" method="post" class="col-2">
                 <button type="submit" class="btn btn-primary  ml-1 mr-1">Ajouter un client</button>
             </form>
+            <form action="?page=admin&insertAdmin" method="post" class="col-2">
+                <button type="submit" class="btn btn-primary  ml-1 mr-1">Ajouter un admin</button>
+            </form>
             <form enctype="multipart/form-data" action="?page=admin&insertMultiple" method="post" class="col-5" style="display:flex; align-items: center;">
                 <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                 <input name="userfile" type="file" />
                  <button type="submit" class="btn btn-primary  ml-1 mr-1">Ajouter plusieurs clients (csv avec point virgule)</button>
-
             </form>
-            <div class="col-2"></div>
-
+      
+            
             <form class="col-3">
                 <select class="form-control">
                     <option value="" disabled selected>Filtre</option>

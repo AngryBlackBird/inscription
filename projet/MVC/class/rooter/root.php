@@ -6,7 +6,7 @@ class root
     {
         include_once "MVC/class/controller/formController.php";
         include_once "MVC/class/controller/contentController.php";
-
+        
 
         include_once "MVC/class/view/formView.php";
         include_once "MVC/class/view/accueilView.php";
@@ -50,6 +50,7 @@ class root
 
 
             $controller = new contentController;
+            $form = new formController;
             $view = new adminView();
             $view->adminHeader();
 
@@ -61,7 +62,10 @@ class root
                 $oneContent = $controller->viewOneContent();
                 $view->clientUpdate($oneContent);
             }
-
+            if (isset($_GET["insertAdmin"])) {
+                $insertOneContent = $form->subcribe();
+                $view->adminInsert();
+            }
 
             if (isset($_GET["insert"])) {
                 $insertOneContent = $controller->insertOneContent();

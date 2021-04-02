@@ -1,3 +1,8 @@
+<?php       
+if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/passRecuperates1.php') {
+    header('Location: /inscription/projet/?page=recoveryPass');
+}
+?>
 <section>
     <div class="container ">
         <div class="row row2">
@@ -9,12 +14,9 @@
                         <label for="InputMail">Votre adresse courriel : </label>
                         <input type="email" class="form-control" id="InputMail" aria-describedby="MailHelp" name="mail" required>
                     </div>
-
-
                     <button type="submit" class="btn btn-primary">Recuper son compte</button>
                 </form>
             </div>
         </div>
     </div>
-
 </section>

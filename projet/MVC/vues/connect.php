@@ -1,3 +1,9 @@
+<?php       
+if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/connect.php') {
+    header('Location: /inscription/projet/?page=connect');
+}
+?>
+
 <section>
 	<div class="container ">
 		<div class="row row2">

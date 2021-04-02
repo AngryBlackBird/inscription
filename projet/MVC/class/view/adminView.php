@@ -48,6 +48,30 @@ class adminView
 <?php
 
     }
+
+
+    public function adminInsert()
+    {
+
+        include_once "MVC/vues/adminSubscribe.php";
+
+        ?>
+        <script>
+            let divid = document.querySelector("#adminInsert");
+            afficherVideo();
+
+            function afficherVideo() { // on affiche la pop up trailer 
+                divid.style.display = "block"
+            }
+
+            function masquerVideo() { // on cache la pop up trailer 
+                divid.style.display = "none"
+            }
+        </script>
+<?php
+    }
+
+
     public function adminHeader()
     {
         include_once "MVC/vues/header-footer/header.php";
