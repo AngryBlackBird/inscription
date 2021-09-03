@@ -28,11 +28,7 @@ class formController
             $mail = $_POST["mail"];
             $pass = password_hash($_POST["pass1"], PASSWORD_DEFAULT);
             $role = 1;
-
             $bdd  = new connectModel;
-
-
-
             $selectPseudo = $bdd->selectPseudo($pseudo);
             $selectMail = $bdd->selectMail($mail);
 

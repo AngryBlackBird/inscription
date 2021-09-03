@@ -28,7 +28,7 @@ class adminView
     <?php
 
     }
-    public function clientInsert()
+    public function clientInsert($data)
     {
 
         include_once "MVC/vues/adminInsert.php";

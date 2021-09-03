@@ -68,8 +68,8 @@ class root
             }
 
             if (isset($_GET["insert"])) {
-                $insertOneContent = $controller->insertOneContent();
-                $view->clientInsert();
+                $result = $controller->insertOneContent();
+                $view->clientInsert($result);
             }
             if (isset($_GET["insertMultiple"])) {
                 $insertMultipleContent = $controller->insertCSV();

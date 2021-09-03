@@ -27,7 +27,15 @@ class contentModel
 
         return $reponse;
     }
+    public function viewOneContentByEmail($email)
+    {
+        $alldata  =  $this->bdd->prepare("SELECT id, name, lastname, mail, time FROM client WHERE mail = :A");
+        $alldata->bindParam(":A", $email);
 
+        $alldata->execute();
+        $reponse = $alldata->fetch();
+        return $reponse;
+    }
 
     public function viewOneContentById($id)
     {

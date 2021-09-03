@@ -9,6 +9,7 @@ if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/adminInsert.php') {
     <div class="container ">
         <div class="row row2">
             <div class="CardCss col-12" >
+                <span class="text-warning font-weight-bolder"><?php echo $data ?></span>
                 <form action="?page=admin&insert=a" method="POST">
                     <div class="form-group">
                         <label for="name">Prénom</label>
@@ -20,7 +21,7 @@ if($_SERVER['PHP_SELF']=='/inscription/projet/MVC/vues/adminInsert.php') {
                     </div>
                     <div class="form-group">
                         <label for="mail">Email</label>
-                        <input type="text" class="form-control" id="InputMail" aria-describedby="MailHelp" name="mail">
+                        <input type="email" class="form-control" id="InputMail" aria-describedby="MailHelp" name="mail">
                     </div>
                     <div class="form-group">
                         <label for="date">Date</label>
